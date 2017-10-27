@@ -1,12 +1,16 @@
 [tank]
 plugin_uploader=yandextank.plugins.DataUploader overload
+plugin_monitoring=yandextank.plugins.Telegraf 
 
 [overload]
 token_file=token.txt
 
 [phantom]
-address = yandex.ru:80 ; Target's address and port
-rps_schedule = const(1,1m) ; load scheme
+address = hcnh.beta3.ceteralabs.com:80 
+rps_schedule = const(1,1m)
 header_http = 1.1
-headers = [Host: yandex.ru] [Cookies: None] [Connection: close]
+headers = [Host: hcnh.beta3.ceteralabs.com] [Cookies: None] [Connection: close]
 uris = /
+
+[telegraf]
+config=monitoring.cfg
